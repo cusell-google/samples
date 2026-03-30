@@ -33,9 +33,7 @@ from models import UnifiedCheckoutCreateRequest
 from pydantic import BaseModel
 from pydantic import HttpUrl
 from services.checkout_service import CheckoutService
-from ucp_sdk.models.schemas.shopping.ap2_mandate import (
-  Checkout as Ap2CompleteRequest,
-)
+from ucp_sdk.models.schemas.shopping.ap2_mandate import Ap2
 from ucp_sdk.models.schemas.shopping.order import Order
 from ucp_sdk.models.schemas.shopping.order import PlatformSchema
 from ucp_sdk.models.schemas.shopping.payment_create_request import (
@@ -205,7 +203,7 @@ async def update_checkout(
 
 async def complete_checkout(
   checkout_id: Annotated[str, Path(..., alias="id")],
-  payment_data: Annotated[dict[str, Any], Body(...)],
+  payment: Annotated[dict[str, Any], Body(...)],
   risk_signals: Annotated[dict[str, Any], Body(...)],
   common_headers: Annotated[
     dependencies.CommonHeaders, Depends(dependencies.common_headers)
@@ -214,15 +212,12 @@ async def complete_checkout(
   checkout_service: Annotated[
     CheckoutService, Depends(dependencies.get_checkout_service)
   ],
-  ap2: Annotated[Ap2CompleteRequest | None, Body()] = None,
+  ap2: Annotated[Ap2 | None, Body()] = None,
 ) -> dict[str, Any]:
   """Complete Checkout Implementation."""
   del common_headers  # Unused
 
-  # Map payment_data (single instrument) to PaymentCreateRequest
-  payment_req = PaymentCreateRequest(
-    instruments=[payment_data],
-  )
+  payment_req = PaymentCreateRequest.model_validate(payment)
 
   checkout_result = await checkout_service.complete_checkout(
     checkout_id, payment_req, risk_signals, idempotency_key, ap2=ap2

@@ -795,24 +795,28 @@ Note:
     # Matches the structure expected by the server's updated complete_checkout
 
     final_payload = {
-      "payment_data": {
-        "id": "instr_my_card",
-        "handler_id": target_handler,
-        "handler_name": target_handler,
-        "type": "card",
-        "brand": "Visa",
-        "last_digits": "4242",
-        "credential": {
-          "type": "token",
-          "token": "success_token",
-        },
-        "billing_address": {
-          "street_address": "123 Main St",
-          "address_locality": "Anytown",
-          "address_region": "CA",
-          "address_country": "US",
-          "postal_code": "12345",
-        },
+      "payment": {
+        "instruments": [
+          {
+            "id": "instr_my_card",
+            "handler_id": target_handler,
+            "handler_name": target_handler,
+            "type": "card",
+            "brand": "Visa",
+            "last_digits": "4242",
+            "credential": {
+              "type": "token",
+              "token": "success_token",
+            },
+            "billing_address": {
+              "street_address": "123 Main St",
+              "address_locality": "Anytown",
+              "address_region": "CA",
+              "address_country": "US",
+              "postal_code": "12345",
+            },
+          }
+        ]
       },
       "risk_signals": {
         "ip": "127.0.0.1",

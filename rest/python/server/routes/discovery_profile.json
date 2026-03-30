@@ -1,10 +1,10 @@
 {
   "ucp": {
-    "version": "2026-01-11",
+    "version": "2026-01-23",
     "services": {
       "dev.ucp.shopping": [
         {
-          "version": "2026-01-11",
+          "version": "2026-01-23",
           "spec": "https://ucp.dev/specification/reference",
           "transport": "rest",
           "endpoint": "{{ENDPOINT}}",
@@ -16,7 +16,7 @@
       "dev.ucp.shopping.checkout": [
         {
           "name": "dev.ucp.shopping.checkout",
-          "version": "2026-01-11",
+          "version": "2026-01-23",
           "spec": "https://ucp.dev/specification/checkout",
           "schema": "https://ucp.dev/schemas/shopping/checkout.json"
         }
@@ -24,7 +24,7 @@
       "dev.ucp.shopping.order": [
         {
           "name": "dev.ucp.shopping.order",
-          "version": "2026-01-11",
+          "version": "2026-01-23",
           "spec": "https://ucp.dev/specification/order",
           "schema": "https://ucp.dev/schemas/shopping/order.json"
         }
@@ -32,7 +32,7 @@
       "dev.ucp.shopping.discount": [
         {
           "name": "dev.ucp.shopping.discount",
-          "version": "2026-01-11",
+          "version": "2026-01-23",
           "spec": "https://ucp.dev/specification/discount",
           "schema": "https://ucp.dev/schemas/shopping/discount.json",
           "extends": "dev.ucp.shopping.checkout"
@@ -41,7 +41,7 @@
       "dev.ucp.shopping.fulfillment": [
         {
           "name": "dev.ucp.shopping.fulfillment",
-          "version": "2026-01-11",
+          "version": "2026-01-23",
           "spec": "https://ucp.dev/specification/fulfillment",
           "schema": "https://ucp.dev/schemas/shopping/fulfillment.json",
           "extends": "dev.ucp.shopping.checkout"
@@ -50,7 +50,7 @@
       "dev.ucp.shopping.buyer_consent": [
         {
           "name": "dev.ucp.shopping.buyer_consent",
-          "version": "2026-01-11",
+          "version": "2026-01-23",
           "spec": "https://ucp.dev/specification/buyer-consent",
           "schema": "https://ucp.dev/schemas/shopping/buyer_consent.json",
           "extends": "dev.ucp.shopping.checkout"
@@ -62,7 +62,7 @@
         {
           "id": "shop_pay",
           "name": "com.shopify.shop_pay",
-          "version": "2026-01-11",
+          "version": "2026-01-23",
           "spec": "https://shopify.dev/docs/agents/checkout/shop-pay-handler",
           "config_schema": "https://shopify.dev/ucp/shop-pay-handler/2026-01-11/config.json",
           "instrument_schemas": [
@@ -77,7 +77,7 @@
         {
           "id": "google_pay",
           "name": "com.google.pay",
-          "version": "2026-01-11",
+          "version": "2026-01-23",
           "spec": "https://pay.google.com/gp/p/ucp/2026-01-11/",
           "config_schema": "https://pay.google.com/gp/p/ucp/2026-01-11/schemas/config.json",
           "instrument_schemas": [
@@ -124,7 +124,7 @@
         {
           "id": "mock_payment_handler",
           "name": "mock_payment_handler",
-          "version": "2026-01-11",
+          "version": "2026-01-23",
           "spec": "https://ucp.dev/schemas/mock_payment_handler/spec",
           "config": {}
         }
