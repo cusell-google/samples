@@ -40,9 +40,8 @@ NOTE: Temporarily the Samples repository expects the SDK at a known relative
 filesystem location, as such, the target paths in these example are significant.
 
 ```shell
-mkdir sdk
-git clone https://github.com/Universal-Commerce-Protocol/python-sdk.git sdk/python
-pushd sdk/python
+git clone https://github.com/Universal-Commerce-Protocol/python-sdk.git
+pushd python-sdk
 uv sync
 popd
 git clone https://github.com/Universal-Commerce-Protocol/samples.git
