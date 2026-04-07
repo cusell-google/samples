@@ -61,8 +61,8 @@ from ucp_sdk.models.schemas.ucp import ResponseOrderSchema as ResponseOrder
 from ucp_sdk.models.schemas.ucp import UcpMetadata
 from ucp_sdk.models.schemas.ucp import Version
 from ucp_sdk.models.schemas.capability import ResponseSchema as Response
-from ucp_sdk.models.schemas.shopping.ap2_mandate import (
-  Checkout as Ap2CompleteRequest,
+from ucp_sdk.models.schemas.shopping.checkout_complete_request import (
+  CheckoutCompleteRequest,
 )
 from ucp_sdk.models.schemas.shopping.discount import Allocation
 from ucp_sdk.models.schemas.shopping.discount import AppliedDiscount
@@ -618,17 +618,17 @@ class CheckoutService:
     payment: PaymentCreateRequest,
     risk_signals: dict[str, Any],
     idempotency_key: str,
-    ap2: Ap2CompleteRequest | None = None,
+    checkout_complete: CheckoutCompleteRequest | None = None,
   ) -> Checkout:
     """Complete a checkout session."""
     logger.info("Completing checkout session %s", checkout_id)
 
     # Idempotency Check
-    # Include risk_signals and ap2 in the hash
+    # Include risk_signals and checkout_complete in the hash
     combined_data = {
       "payment": payment.model_dump(mode="json"),
       "risk_signals": risk_signals,
-      "ap2": ap2.model_dump(mode="json") if ap2 else None,
+      "checkout_complete": checkout_complete.model_dump(mode="json") if checkout_complete else None,
     }
     request_hash = self._compute_hash(combined_data)
 

@@ -795,7 +795,7 @@ Note:
     # Matches the structure expected by the server's updated complete_checkout
 
     final_payload = {
-      "payment_data": {
+      "payment": {
         "id": "instr_my_card",
         "handler_id": target_handler,
         "handler_name": target_handler,
