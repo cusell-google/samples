@@ -225,7 +225,11 @@ async def complete_checkout(
   )
 
   checkout_result = await checkout_service.complete_checkout(
-    checkout_id, payment_req, risk_signals, idempotency_key, checkout_complete=checkout_complete
+    checkout_id,
+    payment_req,
+    risk_signals,
+    idempotency_key,
+    checkout_complete=checkout_complete,
   )
   return checkout_result.model_dump(mode="json", by_alias=True)
 

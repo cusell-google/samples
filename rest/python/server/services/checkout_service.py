@@ -628,7 +628,9 @@ class CheckoutService:
     combined_data = {
       "payment": payment.model_dump(mode="json"),
       "risk_signals": risk_signals,
-      "checkout_complete": checkout_complete.model_dump(mode="json") if checkout_complete else None,
+      "checkout_complete": checkout_complete.model_dump(mode="json")
+      if checkout_complete
+      else None,
     }
     request_hash = self._compute_hash(combined_data)
 
