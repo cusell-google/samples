@@ -34,7 +34,7 @@ import {
   type Order,
   type OrderLineItem,
   type PaymentCreateRequest,
-  PaymentDataSchema,
+  PaymentCreateRequestSchema,
   type PostalAddress,
 } from "../models";
 
@@ -44,8 +44,8 @@ import {
 export const zCompleteCheckoutRequest = z
   .object({
     risk_signals: z.record(z.string(), z.unknown()).optional(),
-  })
-  .extend(PaymentDataSchema.shape);
+    payment: PaymentCreateRequestSchema.optional(),
+  });
 
 /**
  * Type definition for the complete checkout request body.
@@ -665,7 +665,7 @@ export class CheckoutService {
     }
 
     // Process Payment
-    const selectedInstrument = rawBody.payment_data;
+    const selectedInstrument = rawBody.payment?.instruments?.[0];
 
     if (!selectedInstrument) {
       return c.json({ detail: "Missing payment data" }, 400);
