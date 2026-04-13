@@ -10,7 +10,7 @@ import { type UcpDiscoveryProfile } from "../models";
  * capabilities (checkout, order, etc.), and supported payment handlers.
  */
 export class DiscoveryService {
-  readonly ucpVersion = "2026-01-11";
+  readonly ucpVersion = "2026-01-23";
 
   /**
    * Returns the merchant profile, detailing the server's UCP configuration.
@@ -99,7 +99,7 @@ export class DiscoveryService {
           {
             id: "shop_pay",
             name: "com.shopify.shop_pay",
-            version: "2026-01-11",
+            version: "2026-01-23",
             spec: "https://shopify.dev/ucp/handlers/shop_pay",
             config_schema:
               "https://shopify.dev/ucp/handlers/shop_pay/config.json",

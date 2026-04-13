@@ -104,9 +104,9 @@ export RESPONSE=$(curl -s -X GET $SERVER_URL/.well-known/ucp)
         "name": "com.shopify.shop_pay",
         "version": "2026-01-23",
         "spec": "https://shopify.dev/docs/agents/checkout/shop-pay-handler",
-        "config_schema": "https://shopify.dev/ucp/shop-pay-handler/2026-01-11/config.json",
+        "config_schema": "https://shopify.dev/ucp/shop-pay-handler/2026-01-23/config.json",
         "instrument_schemas": [
-          "https://shopify.dev/ucp/shop-pay-handler/2026-01-11/instrument.json"
+          "https://shopify.dev/ucp/shop-pay-handler/2026-01-23/instrument.json"
         ],
         "config": {
           "shop_id": "e8cf032b-bace-4d17-9d81-a78265f26d78"
@@ -118,10 +118,10 @@ export RESPONSE=$(curl -s -X GET $SERVER_URL/.well-known/ucp)
         "id": "google_pay",
         "name": "com.google.pay",
         "version": "2026-01-23",
-        "spec": "https://pay.google.com/gp/p/ucp/2026-01-11/",
-        "config_schema": "https://pay.google.com/gp/p/ucp/2026-01-11/schemas/config.json",
+        "spec": "https://pay.google.com/gp/p/ucp/2026-01-23/",
+        "config_schema": "https://pay.google.com/gp/p/ucp/2026-01-23/schemas/config.json",
         "instrument_schemas": [
-          "https://pay.google.com/gp/p/ucp/2026-01-11/schemas/card_payment_instrument.json"
+          "https://pay.google.com/gp/p/ucp/2026-01-23/schemas/card_payment_instrument.json"
         ],
         "config": {
           "api_version": 2,
@@ -206,9 +206,9 @@ export RESPONSE=$(curl -s -X POST $SERVER_URL/checkout-sessions \
         "name": "com.shopify.shop_pay",
         "version": "2026-01-23",
         "spec": "https://shopify.dev/docs/agents/checkout/shop-pay-handler",
-        "config_schema": "https://shopify.dev/ucp/shop-pay-handler/2026-01-11/config.json",
+        "config_schema": "https://shopify.dev/ucp/shop-pay-handler/2026-01-23/config.json",
         "instrument_schemas": [
-          "https://shopify.dev/ucp/shop-pay-handler/2026-01-11/instrument.json"
+          "https://shopify.dev/ucp/shop-pay-handler/2026-01-23/instrument.json"
         ],
         "config": {
           "shop_id": "e8cf032b-bace-4d17-9d81-a78265f26d78"
@@ -218,10 +218,10 @@ export RESPONSE=$(curl -s -X POST $SERVER_URL/checkout-sessions \
         "id": "google_pay",
         "name": "com.google.pay",
         "version": "2026-01-23",
-        "spec": "https://pay.google.com/gp/p/ucp/2026-01-11/",
-        "config_schema": "https://pay.google.com/gp/p/ucp/2026-01-11/schemas/config.json",
+        "spec": "https://pay.google.com/gp/p/ucp/2026-01-23/",
+        "config_schema": "https://pay.google.com/gp/p/ucp/2026-01-23/schemas/config.json",
         "instrument_schemas": [
-          "https://pay.google.com/gp/p/ucp/2026-01-11/schemas/card_payment_instrument.json"
+          "https://pay.google.com/gp/p/ucp/2026-01-23/schemas/card_payment_instrument.json"
         ],
         "config": {
           "api_version": 2,

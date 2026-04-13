@@ -1204,7 +1204,7 @@ class CheckoutService:
       credential = credential.root
 
     token = None
-    
+
 
     if credential.type == "card":
       # Handle card details
@@ -1216,20 +1216,20 @@ class CheckoutService:
       return
     elif credential.type == "token":
       token = getattr(credential, "token", None)
-      if token is None and hasattr(credential, "raw_token") and credential.raw_token:
+      if token is None and hasattr(credential, "raw_token") and \
+        credential.raw_token:
         import json
         try:
           rt = json.loads(credential.raw_token)
           if "token" in rt:
              token = rt["token"]
-        except:
+        except Exception:
           pass
       if not token:
         token = getattr(credential, "token", None)
       if not token:
         token = getattr(credential, "raw_token", None)
     elif isinstance(credential, dict):
-      print(f"DEBUG credential dict: {credential}")
       type_val = credential.get("type")
       if type_val == "card":
         number = credential.get("number", "unknown")
@@ -1246,7 +1246,9 @@ class CheckoutService:
       logger.warning("Unknown credential type: %s", type(credential))
 
     if handler_id == "mock_payment_handler":
-      if token == "success_token" or token == {"mock": True} or token == '{"mock":true}' or token == "{\"mock\":true}":
+      if token in (
+          "success_token", {"mock": True}, '{"mock":true}', "{\"mock\":true}"
+      ):
         return  # Success
       elif token == "fail_token":
         raise PaymentFailedError(

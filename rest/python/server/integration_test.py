@@ -37,8 +37,12 @@ from ucp_sdk.models.schemas.shopping import (
 from ucp_sdk.models.schemas.shopping import (
   payment_create_request as payment_create_req,
 )
-from ucp_sdk.models.schemas.shopping.checkout_complete_request import CheckoutCompleteRequest
-from ucp_sdk.models.schemas.shopping.payment_complete_request import PaymentCompleteRequest
+from ucp_sdk.models.schemas.shopping.checkout_complete_request import (
+  CheckoutCompleteRequest
+)
+from ucp_sdk.models.schemas.shopping.payment_complete_request import (
+  PaymentCompleteRequest
+)
 from ucp_sdk.models.schemas.shopping.ap2_mandate import Checkout as Ap2Checkout
 from ucp_sdk.models.schemas.shopping.types import fulfillment_method
 from ucp_sdk.models.schemas.shopping.types import fulfillment_group
@@ -49,19 +53,10 @@ from ucp_sdk.models.schemas.shopping.discount import (
   Checkout as DiscountCheckoutResp,
 )
 from ucp_sdk.models.schemas.shopping.fulfillment import (
-  Checkout as Fulfillment,
-)
-from ucp_sdk.models.schemas.shopping.fulfillment import (
   Checkout as FulfillmentCheckout,
 )
 from ucp_sdk.models.schemas.shopping.order import PlatformSchema
 from ucp_sdk.models.schemas.shopping.types import card_payment_instrument
-from ucp_sdk.models.schemas.shopping.types import (
-  fulfillment_group_create_request as fulfillment_group_create_req,
-)
-from ucp_sdk.models.schemas.shopping.types import (
-  fulfillment_method_create_request as fulfillment_method_create_req,
-)
 from ucp_sdk.models.schemas.shopping.types import fulfillment as fulfillment_req
 from ucp_sdk.models.schemas.shopping.types import (
   item_create_request as item_create_req,
@@ -246,7 +241,9 @@ class IntegrationTest(absltest.TestCase):
     destination = shipping_destination_req.ShippingDestination(
       id="dest_1", address_country="US"
     )
-    group = fulfillment_group.FulfillmentGroup(id='mock-group-id', line_item_ids=[i_id for i_id, _, _, _ in items],
+    group = fulfillment_group.FulfillmentGroup(
+      id='mock-group-id',
+      line_item_ids=[i_id for i_id, _, _, _ in items],
       selected_option_id="std-ship"
     )
     method = fulfillment_method.FulfillmentMethod(id='mock-method-id',
@@ -269,7 +266,11 @@ class IntegrationTest(absltest.TestCase):
 
   def _create_payment_payload(self) -> CheckoutCompleteRequest:
     """Create a payment payload using SDK models."""
-    credential = token_credential_resp.TokenCredential(type="token", token="success_token", raw_token="{\"mock\":true}")
+    credential = token_credential_resp.TokenCredential(
+      type="token",
+      token="success_token",
+      raw_token="{\"mock\":true}"
+    )
     instrument = card_payment_instrument.CardPaymentInstrument(
       id="instr_1",
       handler_id="mock_payment_handler",
@@ -279,15 +280,14 @@ class IntegrationTest(absltest.TestCase):
       last_digits="1234",
       credential=credential,
     )
-    from ucp_sdk.models.schemas.shopping.types import payment_instrument
-    
+
     selected_instrument = payment_instrument.SelectedPaymentInstrument(
         id=instrument.id,
         handler_id=instrument.handler_id,
         type=instrument.type,
         credential=instrument.credential,
     )
-    
+
     return CheckoutCompleteRequest(
       payment=PaymentCompleteRequest(instruments=[selected_instrument]),
       risk_signals={},

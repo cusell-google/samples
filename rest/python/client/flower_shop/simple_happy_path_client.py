@@ -280,7 +280,9 @@ Note:
 
     # We include the buyer to trigger address lookup on the server
 
-    buyer_req = buyer_create_request.BuyerCreateRequest(full_name="John Doe", email="john.doe@example.com")
+    buyer_req = buyer_create_request.BuyerCreateRequest(
+        full_name="John Doe", email="john.doe@example.com"
+    )
 
     create_payload = checkout_create_request.CheckoutCreateRequest(
       currency="USD",
@@ -602,7 +604,10 @@ Note:
         line_items=[line_item1_update, line_item2_update],
         currency=checkout_data["currency"],
         payment=checkout_data["payment"],
-        fulfillment={"methods": [{"id": "method_1", "line_item_ids": [li_1["id"], li_2["id"]], "type": "shipping"}]},
+        fulfillment={"methods": [
+            {"id": "method_1", "type": "shipping",
+             "line_item_ids": [li_1["id"], li_2["id"]]}
+        ]},
       )
 
       trigger_payload = trigger_req.model_dump(
@@ -682,7 +687,9 @@ Note:
         # We must send full payload again
 
         trigger_req.fulfillment = {
-          "methods": [{"id": "method_1", "line_item_ids": [li_1["id"], li_2["id"]], "type": "shipping", "selected_destination_id": dest_id}]
+                "id": "method_1",
+                "line_item_ids": [li_1["id"], li_2["id"]],
+                "type": "shipping",
         }
 
         payload = trigger_req.model_dump(
@@ -733,9 +740,16 @@ Note:
           trigger_req.fulfillment = {
             "methods": [
               {
-                "id": "method_1", "line_item_ids": [li_1["id"], li_2["id"]], "type": "shipping",
+                "id": "method_1",
+                "line_item_ids": [li_1["id"], li_2["id"]],
+                "type": "shipping",
                 "selected_destination_id": dest_id,
-                "groups": [{"id": group_id, "line_item_ids": group_li_ids, "selected_option_id": option_id}],
+                "groups": [
+                    {
+                        "id": group_id, "line_item_ids": group_li_ids,
+                        "selected_option_id": option_id
+                    }
+                ],
               }
             ]
           }
