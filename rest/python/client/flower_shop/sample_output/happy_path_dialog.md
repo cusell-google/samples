@@ -42,10 +42,10 @@ export RESPONSE=$(curl -s -X GET $SERVER_URL/.well-known/ucp)
 ```json
 {
   "ucp": {
-    "version": "2026-01-11",
+    "version": "2026-01-23",
     "services": {
       "dev.ucp.shopping": {
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "spec": "https://ucp.dev/specs/shopping",
         "rest": {
           "schema": "https://ucp.dev/services/shopping/openapi.json",
@@ -56,54 +56,54 @@ export RESPONSE=$(curl -s -X GET $SERVER_URL/.well-known/ucp)
     "capabilities": [
       {
         "name": "dev.ucp.shopping.checkout",
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "spec": "https://ucp.dev/specs/shopping/checkout",
         "schema": "https://ucp.dev/schemas/shopping/checkout.json"
       },
       {
         "name": "dev.ucp.shopping.order",
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "spec": "https://ucp.dev/specs/shopping/order",
         "schema": "https://ucp.dev/schemas/shopping/order.json"
       },
       {
         "name": "dev.ucp.shopping.refund",
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "spec": "https://ucp.dev/specs/shopping/refund",
         "schema": "https://ucp.dev/schemas/shopping/refund.json",
         "extends": "dev.ucp.shopping.order"
       },
       {
         "name": "dev.ucp.shopping.return",
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "spec": "https://ucp.dev/specs/shopping/return",
         "schema": "https://ucp.dev/schemas/shopping/return.json",
         "extends": "dev.ucp.shopping.order"
       },
       {
         "name": "dev.ucp.shopping.dispute",
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "spec": "https://ucp.dev/specs/shopping/dispute",
         "schema": "https://ucp.dev/schemas/shopping/dispute.json",
         "extends": "dev.ucp.shopping.order"
       },
       {
         "name": "dev.ucp.shopping.discount",
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "spec": "https://ucp.dev/specs/shopping/discount",
         "schema": "https://ucp.dev/schemas/shopping/discount.json",
         "extends": "dev.ucp.shopping.checkout"
       },
       {
         "name": "dev.ucp.shopping.fulfillment",
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "spec": "https://ucp.dev/specs/shopping/fulfillment",
         "schema": "https://ucp.dev/schemas/shopping/fulfillment.json",
         "extends": "dev.ucp.shopping.checkout"
       },
       {
         "name": "dev.ucp.shopping.buyer_consent",
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "spec": "https://ucp.dev/specs/shopping/buyer_consent",
         "schema": "https://ucp.dev/schemas/shopping/buyer_consent.json",
         "extends": "dev.ucp.shopping.checkout"
@@ -115,7 +115,7 @@ export RESPONSE=$(curl -s -X GET $SERVER_URL/.well-known/ucp)
       {
         "id": "shop_pay",
         "name": "com.shopify.shop_pay",
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "spec": "https://shopify.dev/ucp/handlers/shop_pay",
         "config_schema": "https://shopify.dev/ucp/handlers/shop_pay/config.json",
         "instrument_schemas": [
@@ -128,7 +128,7 @@ export RESPONSE=$(curl -s -X GET $SERVER_URL/.well-known/ucp)
       {
         "id": "google_pay",
         "name": "google.pay",
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "spec": "https://example.com/spec",
         "config_schema": "https://example.com/schema",
         "instrument_schemas": [
@@ -167,7 +167,7 @@ export RESPONSE=$(curl -s -X GET $SERVER_URL/.well-known/ucp)
       {
         "id": "mock_payment_handler",
         "name": "dev.ucp.mock_payment",
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "spec": "https://ucp.dev/specs/mock",
         "config_schema": "https://ucp.dev/schemas/mock.json",
         "instrument_schemas": [
@@ -214,7 +214,7 @@ export RESPONSE=$(curl -s -X POST $SERVER_URL/checkout-sessions \
       {
         "id": "shop_pay",
         "name": "com.shopify.shop_pay",
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "spec": "https://shopify.dev/ucp/handlers/shop_pay",
         "config_schema": "https://shopify.dev/ucp/handlers/shop_pay/config.json",
         "instrument_schemas": [
@@ -227,7 +227,7 @@ export RESPONSE=$(curl -s -X POST $SERVER_URL/checkout-sessions \
       {
         "id": "google_pay",
         "name": "google.pay",
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "spec": "https://example.com/spec",
         "config_schema": "https://example.com/schema",
         "instrument_schemas": [
@@ -272,7 +272,7 @@ export RESPONSE=$(curl -s -X POST $SERVER_URL/checkout-sessions \
       {
         "id": "mock_payment_handler",
         "name": "dev.ucp.mock_payment",
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "spec": "https://ucp.dev/specs/mock",
         "config_schema": "https://ucp.dev/schemas/mock.json",
         "instrument_schemas": [
@@ -295,11 +295,11 @@ export RESPONSE=$(curl -s -X POST $SERVER_URL/checkout-sessions \
 ```json
 {
   "ucp": {
-    "version": "2026-01-11",
+    "version": "2026-01-23",
     "capabilities": [
       {
         "name": "dev.ucp.shopping.checkout",
-        "version": "2026-01-11"
+        "version": "2026-01-23"
       }
     ]
   },
@@ -400,11 +400,11 @@ export RESPONSE=$(curl -s -X PUT $SERVER_URL/checkout-sessions/$CHECKOUT_ID \
 ```json
 {
   "ucp": {
-    "version": "2026-01-11",
+    "version": "2026-01-23",
     "capabilities": [
       {
         "name": "dev.ucp.shopping.checkout",
-        "version": "2026-01-11"
+        "version": "2026-01-23"
       }
     ]
   },
@@ -529,11 +529,11 @@ export RESPONSE=$(curl -s -X PUT $SERVER_URL/checkout-sessions/$CHECKOUT_ID \
 ```json
 {
   "ucp": {
-    "version": "2026-01-11",
+    "version": "2026-01-23",
     "capabilities": [
       {
         "name": "dev.ucp.shopping.checkout",
-        "version": "2026-01-11"
+        "version": "2026-01-23"
       }
     ]
   },
@@ -674,11 +674,11 @@ export RESPONSE=$(curl -s -X PUT $SERVER_URL/checkout-sessions/$CHECKOUT_ID \
 ```json
 {
   "ucp": {
-    "version": "2026-01-11",
+    "version": "2026-01-23",
     "capabilities": [
       {
         "name": "dev.ucp.shopping.checkout",
-        "version": "2026-01-11"
+        "version": "2026-01-23"
       }
     ]
   },
@@ -881,11 +881,11 @@ export RESPONSE=$(curl -s -X PUT $SERVER_URL/checkout-sessions/$CHECKOUT_ID \
 ```json
 {
   "ucp": {
-    "version": "2026-01-11",
+    "version": "2026-01-23",
     "capabilities": [
       {
         "name": "dev.ucp.shopping.checkout",
-        "version": "2026-01-11"
+        "version": "2026-01-23"
       }
     ]
   },
@@ -1138,11 +1138,11 @@ export RESPONSE=$(curl -s -X PUT $SERVER_URL/checkout-sessions/$CHECKOUT_ID \
 ```json
 {
   "ucp": {
-    "version": "2026-01-11",
+    "version": "2026-01-23",
     "capabilities": [
       {
         "name": "dev.ucp.shopping.checkout",
-        "version": "2026-01-11"
+        "version": "2026-01-23"
       }
     ]
   },
@@ -1398,11 +1398,11 @@ export RESPONSE=$(curl -s -X POST $SERVER_URL/checkout-sessions/$CHECKOUT_ID/com
 ```json
 {
   "ucp": {
-    "version": "2026-01-11",
+    "version": "2026-01-23",
     "capabilities": [
       {
         "name": "dev.ucp.shopping.checkout",
-        "version": "2026-01-11"
+        "version": "2026-01-23"
       }
     ]
   },

@@ -241,7 +241,7 @@ UCP capabilities let you extend checkout data in a standardized way. The client 
     ...existing...,
     {
       "name": "dev.ucp.shopping.loyalty",
-      "version": "2026-01-11",
+      "version": "2026-01-23",
       "extends": "dev.ucp.shopping.checkout"
     }
   ]
@@ -335,7 +335,7 @@ def move_to_checkout(tool_context: ToolContext, product_id: str) -> dict:
       {
         "id": "stripe_handler",
         "name": "stripe.payment.provider",
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "config": { "business_id": "acct_123456" }
       }
     ]

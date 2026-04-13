@@ -76,7 +76,7 @@ fetch("/api", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
-    "X-A2A-Extensions": "https://ucp.dev/specification/reference?v=2026-01-11",
+    "X-A2A-Extensions": "https://ucp.dev/specification/reference?v=2026-01-23",
     "UCP-Agent": `profile="http://localhost:3000/profile/agent_profile.json"`,
   },
   body: JSON.stringify(request),

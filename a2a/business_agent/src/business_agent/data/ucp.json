@@ -1,9 +1,9 @@
 {
   "ucp": {
-    "version": "2026-01-11",
+    "version": "2026-01-23",
     "services": {
       "dev.ucp.shopping": {
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "spec": "https://ucp.dev/specs/shopping",
         "a2a": {
           "endpoint": "http://localhost:10999/.well-known/agent-card.json"
@@ -13,13 +13,13 @@
     "capabilities": [
       {
         "name": "dev.ucp.shopping.checkout",
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "spec": "https://ucp.dev/specs/shopping/checkout",
         "schema": "https://ucp.dev/schemas/shopping/checkout.json"
       },
       {
         "name": "dev.ucp.shopping.fulfillment",
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "spec": "https://ucp.dev/specs/shopping/fulfillment",
         "schema": "https://ucp.dev/schemas/shopping/fulfillment.json",
         "extends": "dev.ucp.shopping.checkout"
@@ -31,7 +31,7 @@
       {
         "id": "example_payment_provider",
         "name": "example.payment.provider",
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "spec": "https://pay.provider.example/specs/handlers/payments",
         "config_schema": "https://pay.provider.example/specs/handlers/config.json",
         "instrument_schemas": [

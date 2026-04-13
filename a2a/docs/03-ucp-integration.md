@@ -41,10 +41,10 @@ This enables any UCP-compliant client to work with any UCP-compliant merchant.
 ```json
 {
   "ucp": {
-    "version": "2026-01-11",
+    "version": "2026-01-23",
     "services": {
       "dev.ucp.shopping": {
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "spec": "https://ucp.dev/specs/shopping",
         "a2a": {
           "endpoint": "http://localhost:10999/.well-known/agent-card.json"
@@ -54,13 +54,13 @@ This enables any UCP-compliant client to work with any UCP-compliant merchant.
     "capabilities": [
       {
         "name": "dev.ucp.shopping.checkout",
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "spec": "https://ucp.dev/specs/shopping/checkout",
         "schema": "https://ucp.dev/schemas/shopping/checkout.json"
       },
       {
         "name": "dev.ucp.shopping.fulfillment",
-        "version": "2026-01-11",
+        "version": "2026-01-23",
         "extends": "dev.ucp.shopping.checkout"
       }
     ]
@@ -70,7 +70,7 @@ This enables any UCP-compliant client to work with any UCP-compliant merchant.
       {
         "id": "example_payment_provider",
         "name": "example.payment.provider",
-        "version": "2026-01-11"
+        "version": "2026-01-23"
       }
     ]
   }
@@ -84,7 +84,7 @@ This enables any UCP-compliant client to work with any UCP-compliant merchant.
 ```json
 {
   "ucp": {
-    "version": "2026-01-11",
+    "version": "2026-01-23",
     "capabilities": [
       { "name": "dev.ucp.shopping.checkout" },
       { "name": "dev.ucp.shopping.fulfillment" },
