@@ -176,7 +176,7 @@ class CheckoutService:
           id=str(uuid.uuid4()),
           item=ItemResponse(
             id=li_req.item.id,
-            title=li_req.item.title,
+            title="",
             price=0,  # Will be set by recalculate_totals
           ),
           quantity=li_req.quantity,
@@ -422,7 +422,7 @@ class CheckoutService:
             id=li_req.id or str(uuid.uuid4()),
             item=ItemResponse(
               id=li_req.item.id,
-              title=li_req.item.title,
+              title="",
               price=0,
             ),
             quantity=li_req.quantity,
