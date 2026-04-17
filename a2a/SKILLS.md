@@ -248,12 +248,12 @@ return {"message": "Error description", "status": "error"}
 
 ## External Resources
 
-| Resource              | URL                                     |
-| --------------------- | --------------------------------------- |
-| **ADK Docs**          | https://google.github.io/adk-docs/      |
-| **A2A Protocol**      | https://a2a-protocol.org/latest/        |
+| Resource              | URL                                                |
+| --------------------- | -------------------------------------------------- |
+| **ADK Docs**          | https://google.github.io/adk-docs/                 |
+| **A2A Protocol**      | https://a2a-protocol.org/latest/                   |
 | **UCP Specification** | https://ucp.dev/2026-01-23/specification/overview/ |
-| **Gemini API**        | https://ai.google.dev/gemini-api/docs   |
+| **Gemini API**        | https://ai.google.dev/gemini-api/docs              |
 
 ## Dependencies
 

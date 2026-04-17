@@ -32,7 +32,8 @@ export class DiscoveryService {
             version: this.ucpVersion,
             spec: "https://ucp.dev/2026-01-23/specification/shopping",
             rest: {
-              schema: "https://ucp.dev/2026-01-23/services/shopping/openapi.json",
+              schema:
+                "https://ucp.dev/2026-01-23/services/shopping/openapi.json",
               endpoint: "http://localhost:3000",
             },
           },
@@ -75,13 +76,15 @@ export class DiscoveryService {
           {
             version: this.ucpVersion,
             spec: "https://ucp.dev/2026-01-23/specification/shopping/fulfillment",
-            schema: "https://ucp.dev/2026-01-23/schemas/shopping/fulfillment.json",
+            schema:
+              "https://ucp.dev/2026-01-23/schemas/shopping/fulfillment.json",
             extends: "dev.ucp.shopping.checkout",
           },
           {
             version: this.ucpVersion,
             spec: "https://ucp.dev/2026-01-23/specification/shopping/buyer_consent",
-            schema: "https://ucp.dev/2026-01-23/schemas/shopping/buyer_consent.json",
+            schema:
+              "https://ucp.dev/2026-01-23/schemas/shopping/buyer_consent.json",
             extends: "dev.ucp.shopping.checkout",
           },
         ],

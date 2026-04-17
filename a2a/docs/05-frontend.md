@@ -76,7 +76,8 @@ fetch("/api", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
-    "X-A2A-Extensions": "https://ucp.dev/2026-01-23/specification/overview?v=2026-01-23",
+    "X-A2A-Extensions":
+      "https://ucp.dev/2026-01-23/specification/overview?v=2026-01-23",
     "UCP-Agent": `profile="http://localhost:3000/profile/agent_profile.json"`,
   },
   body: JSON.stringify(request),
@@ -193,7 +194,7 @@ class CredentialProviderProxy {
             last_digits: "1111",
             expiry_month: 12,
             expiry_year: 2026,
-          }
+          },
         },
         {
           id: "instr_2",
@@ -203,7 +204,7 @@ class CredentialProviderProxy {
             last_digits: "8888",
             expiry_month: 12,
             expiry_year: 2026,
-          }
+          },
         },
       ],
     };

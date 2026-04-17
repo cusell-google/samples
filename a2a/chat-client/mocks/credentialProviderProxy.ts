@@ -33,7 +33,7 @@ export class CredentialProviderProxy {
             last_digits: "1111",
             expiry_month: 12,
             expiry_year: 2026,
-          }
+          },
         },
         {
           id: "instr_2",
@@ -43,7 +43,7 @@ export class CredentialProviderProxy {
             last_digits: "8888",
             expiry_month: 12,
             expiry_year: 2026,
-          }
+          },
         },
         {
           id: "instr_3",
@@ -53,7 +53,7 @@ export class CredentialProviderProxy {
             last_digits: "5555",
             expiry_month: 12,
             expiry_year: 2026,
-          }
+          },
         },
       ],
     };
