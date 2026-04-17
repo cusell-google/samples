@@ -205,7 +205,7 @@ async def update_checkout(
 
 async def complete_checkout(
   checkout_id: Annotated[str, Path(..., alias="id")],
-  payment_data: Annotated[dict[str, Any], Body(...)],
+  payment: Annotated[dict[str, Any], Body(...)],
   risk_signals: Annotated[dict[str, Any], Body(...)],
   common_headers: Annotated[
     dependencies.CommonHeaders, Depends(dependencies.common_headers)
@@ -219,10 +219,8 @@ async def complete_checkout(
   """Complete Checkout Implementation."""
   del common_headers  # Unused
 
-  # Map payment_data (single instrument) to PaymentCreateRequest
-  payment_req = PaymentCreateRequest(
-    instruments=[payment_data],
-  )
+  # Parse payment into PaymentCreateRequest
+  payment_req = PaymentCreateRequest(**payment)
 
   checkout_result = await checkout_service.complete_checkout(
     checkout_id,

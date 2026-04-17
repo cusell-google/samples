@@ -240,7 +240,6 @@ UCP capabilities let you extend checkout data in a standardized way. The client 
   "capabilities": [
     ...existing...,
     {
-      "name": "dev.ucp.shopping.loyalty",
       "version": "2026-01-23",
       "extends": "dev.ucp.shopping.checkout"
     }
@@ -296,7 +295,6 @@ def apply_loyalty_points(tool_context: ToolContext, points: int) -> dict:
 ### Example: Wishlist Capability
 
 ```python
-# 1. Profile: {"name": "dev.ucp.shopping.wishlist", "extends": "checkout"}
 
 # 2. Type
 class WishlistCheckout(Checkout):
@@ -399,7 +397,6 @@ Replace `CredentialProviderProxy` in `chat-client/mocks/`:
 ```typescript
 class StripeCredentialProvider {
   handler_id = "stripe_handler";
-  handler_name = "stripe.payment.provider";
 
   async getSupportedPaymentMethods(email: string) {
     // Call your payment service to get saved methods

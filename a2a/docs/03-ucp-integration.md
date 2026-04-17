@@ -45,7 +45,7 @@ This enables any UCP-compliant client to work with any UCP-compliant merchant.
     "services": {
       "dev.ucp.shopping": {
         "version": "2026-01-23",
-        "spec": "https://ucp.dev/specs/shopping",
+        "spec": "https://ucp.dev/2026-01-23/specification/shopping",
         "a2a": {
           "endpoint": "http://localhost:10999/.well-known/agent-card.json"
         }
@@ -53,13 +53,11 @@ This enables any UCP-compliant client to work with any UCP-compliant merchant.
     },
     "capabilities": [
       {
-        "name": "dev.ucp.shopping.checkout",
         "version": "2026-01-23",
-        "spec": "https://ucp.dev/specs/shopping/checkout",
-        "schema": "https://ucp.dev/schemas/shopping/checkout.json"
+        "spec": "https://ucp.dev/2026-01-23/specification/shopping/checkout",
+        "schema": "https://ucp.dev/2026-01-23/schemas/shopping/checkout.json"
       },
       {
-        "name": "dev.ucp.shopping.fulfillment",
         "version": "2026-01-23",
         "extends": "dev.ucp.shopping.checkout"
       }
@@ -186,7 +184,6 @@ UCP_RISK_SIGNALS_KEY = "a2a.ucp.checkout.risk_signals"  # Risk data
 {
   "capabilities": [
     ...,
-    {"name": "dev.ucp.shopping.new_capability", "extends": "checkout"}
   ]
 }
 ```

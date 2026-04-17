@@ -796,23 +796,28 @@ Note:
 
     final_payload = {
       "payment": {
-        "id": "instr_my_card",
-        "handler_id": target_handler,
-        "handler_name": target_handler,
-        "type": "card",
-        "brand": "Visa",
-        "last_digits": "4242",
-        "credential": {
-          "type": "token",
-          "token": "success_token",
-        },
-        "billing_address": {
-          "street_address": "123 Main St",
-          "address_locality": "Anytown",
-          "address_region": "CA",
-          "address_country": "US",
-          "postal_code": "12345",
-        },
+        "instruments": [
+          {
+            "id": "instr_my_card",
+            "handler_id": target_handler,
+            "type": "card",
+            "display": {
+              "brand": "Visa",
+              "last_digits": "4242",
+            },
+            "credential": {
+              "type": "token",
+              "token": "success_token",
+            },
+            "billing_address": {
+              "street_address": "123 Main St",
+              "address_locality": "Anytown",
+              "address_region": "CA",
+              "address_country": "US",
+              "postal_code": "12345",
+            },
+          }
+        ]
       },
       "risk_signals": {
         "ip": "127.0.0.1",
