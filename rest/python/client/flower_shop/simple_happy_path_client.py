@@ -257,7 +257,7 @@ Note:
     # We start with one item: "Red Rose"
 
     item1 = item_create_req.ItemCreateRequest(
-      id="bouquet_roses", title="Red Rose"
+      id="bouquet_roses"
     )
 
     line_item1 = line_item_create_req.LineItemCreateRequest(
@@ -353,7 +353,7 @@ Note:
     # Update Item 1 (Roses) - Keep quantity 1
 
     item1_update = item_update_req.ItemUpdateRequest(
-      id="bouquet_roses", title="Red Rose"
+      id="bouquet_roses"
     )
 
     line_item1_update = line_item_update_req.LineItemUpdateRequest(
@@ -365,7 +365,7 @@ Note:
     # Add Item 2 (Ceramic Pot) - Quantity 2
 
     item2_update = item_update_req.ItemUpdateRequest(
-      id="pot_ceramic", title="Ceramic Pot"
+      id="pot_ceramic"
     )
 
     line_item2_update = line_item_update_req.LineItemUpdateRequest(
@@ -460,7 +460,7 @@ Note:
     )
 
     item1_update = item_update_req.ItemUpdateRequest(
-      id="bouquet_roses", title="Red Rose"
+      id="bouquet_roses"
     )
 
     line_item1_update = line_item_update_req.LineItemUpdateRequest(
@@ -470,7 +470,7 @@ Note:
     )
 
     item2_update = item_update_req.ItemUpdateRequest(
-      id="pot_ceramic", title="Ceramic Pot"
+      id="pot_ceramic"
     )
 
     line_item2_update = line_item_update_req.LineItemUpdateRequest(
@@ -571,7 +571,7 @@ Note:
       )
 
       item1_update = item_update_req.ItemUpdateRequest(
-        id="bouquet_roses", title="Red Rose"
+        id="bouquet_roses"
       )
 
       line_item1_update = line_item_update_req.LineItemUpdateRequest(
@@ -581,7 +581,7 @@ Note:
       )
 
       item2_update = item_update_req.ItemUpdateRequest(
-        id="pot_ceramic", title="Ceramic Pot"
+        id="pot_ceramic"
       )
 
       line_item2_update = line_item_update_req.LineItemUpdateRequest(
