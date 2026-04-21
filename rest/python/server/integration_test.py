@@ -228,7 +228,7 @@ class IntegrationTest(absltest.TestCase):
     line_items = []
     for item_id, item_title, item_price, quantity in items:
       item = item_create_req.ItemCreateRequest(
-        id=item_id, title=item_title, price=item_price
+        id=item_id
       )
       line_item = line_item_create_req.LineItemCreateRequest(
         quantity=quantity, item=item
