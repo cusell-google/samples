@@ -226,10 +226,8 @@ class IntegrationTest(absltest.TestCase):
   ) -> checkout_create_req.CheckoutCreateRequest:
     """Create a checkout payload using SDK models."""
     line_items = []
-    for item_id, item_title, item_price, quantity in items:
-      item = item_create_req.ItemCreateRequest(
-        id=item_id
-      )
+    for item_id, _item_title, _item_price, quantity in items:
+      item = item_create_req.ItemCreateRequest(id=item_id)
       line_item = line_item_create_req.LineItemCreateRequest(
         quantity=quantity, item=item
       )

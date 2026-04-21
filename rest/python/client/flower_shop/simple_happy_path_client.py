@@ -256,9 +256,7 @@ Note:
 
     # We start with one item: "Red Rose"
 
-    item1 = item_create_req.ItemCreateRequest(
-      id="bouquet_roses"
-    )
+    item1 = item_create_req.ItemCreateRequest(id="bouquet_roses")
 
     line_item1 = line_item_create_req.LineItemCreateRequest(
       quantity=1, item=item1
@@ -352,9 +350,7 @@ Note:
 
     # Update Item 1 (Roses) - Keep quantity 1
 
-    item1_update = item_update_req.ItemUpdateRequest(
-      id="bouquet_roses"
-    )
+    item1_update = item_update_req.ItemUpdateRequest(id="bouquet_roses")
 
     line_item1_update = line_item_update_req.LineItemUpdateRequest(
       id=checkout_data["line_items"][0]["id"],
@@ -364,9 +360,7 @@ Note:
 
     # Add Item 2 (Ceramic Pot) - Quantity 2
 
-    item2_update = item_update_req.ItemUpdateRequest(
-      id="pot_ceramic"
-    )
+    item2_update = item_update_req.ItemUpdateRequest(id="pot_ceramic")
 
     line_item2_update = line_item_update_req.LineItemUpdateRequest(
       quantity=2,
@@ -459,9 +453,7 @@ Note:
       if li["item"]["id"] == "pot_ceramic"
     )
 
-    item1_update = item_update_req.ItemUpdateRequest(
-      id="bouquet_roses"
-    )
+    item1_update = item_update_req.ItemUpdateRequest(id="bouquet_roses")
 
     line_item1_update = line_item_update_req.LineItemUpdateRequest(
       id=li_1["id"],
@@ -469,9 +461,7 @@ Note:
       item=item1_update,
     )
 
-    item2_update = item_update_req.ItemUpdateRequest(
-      id="pot_ceramic"
-    )
+    item2_update = item_update_req.ItemUpdateRequest(id="pot_ceramic")
 
     line_item2_update = line_item_update_req.LineItemUpdateRequest(
       id=li_2["id"],
@@ -570,9 +560,7 @@ Note:
         if li["item"]["id"] == "pot_ceramic"
       )
 
-      item1_update = item_update_req.ItemUpdateRequest(
-        id="bouquet_roses"
-      )
+      item1_update = item_update_req.ItemUpdateRequest(id="bouquet_roses")
 
       line_item1_update = line_item_update_req.LineItemUpdateRequest(
         id=li_1["id"],
@@ -580,9 +568,7 @@ Note:
         item=item1_update,
       )
 
-      item2_update = item_update_req.ItemUpdateRequest(
-        id="pot_ceramic"
-      )
+      item2_update = item_update_req.ItemUpdateRequest(id="pot_ceramic")
 
       line_item2_update = line_item_update_req.LineItemUpdateRequest(
         id=li_2["id"],
