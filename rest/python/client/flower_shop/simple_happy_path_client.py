@@ -237,7 +237,9 @@ Note:
 
     discovery_data = response.json()
 
-    supported_handlers = discovery_data.get("payment", {}).get("handlers", [])
+    supported_handlers = []
+    for handlers in discovery_data.get("payment_handlers", {}).values():
+      supported_handlers.extend(handlers)
 
     logger.info(
       "Merchant supports %d payment handlers:", len(supported_handlers)
