@@ -90,8 +90,8 @@ class IntegrationTest(absltest.TestCase):
   """Integration tests for the UCP server application."""
 
   def setUp(self) -> None:
-    flags.FLAGS(["test"])
     """Set up the test environment, including temporary DBs and dependencies."""
+    flags.FLAGS(["test"])
     super().setUp()
     # Create a temporary directory for test databases
     self.test_dir = Path(tempfile.mkdtemp())
