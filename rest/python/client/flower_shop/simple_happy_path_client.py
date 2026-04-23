@@ -34,14 +34,14 @@ import logging
 from pathlib import Path
 import uuid
 import httpx
-from ucp_sdk.models.schemas.shopping import checkout_create_req
-from ucp_sdk.models.schemas.shopping import checkout_update_req
-from ucp_sdk.models.schemas.shopping import payment_create_req
-from ucp_sdk.models.schemas.shopping.types import buyer
-from ucp_sdk.models.schemas.shopping.types import item_create_req
-from ucp_sdk.models.schemas.shopping.types import item_update_req
-from ucp_sdk.models.schemas.shopping.types import line_item_create_req
-from ucp_sdk.models.schemas.shopping.types import line_item_update_req
+from ucp_sdk.models.schemas.shopping import checkout_create_request
+from ucp_sdk.models.schemas.shopping import checkout_update_request
+from ucp_sdk.models.schemas.shopping import payment_create_request
+from ucp_sdk.models.schemas.shopping.types import buyer_create_request
+from ucp_sdk.models.schemas.shopping.types import item_create_request
+from ucp_sdk.models.schemas.shopping.types import item_update_request
+from ucp_sdk.models.schemas.shopping.types import line_item_create_request
+from ucp_sdk.models.schemas.shopping.types import line_item_update_request
 
 
 def get_headers() -> dict[str, str]:
@@ -256,9 +256,9 @@ Note:
 
     # We start with one item: "Red Rose"
 
-    item1 = item_create_req.ItemCreateRequest(id="bouquet_roses")
+    item1 = item_create_request.ItemCreateRequest(id="bouquet_roses")
 
-    line_item1 = line_item_create_req.LineItemCreateRequest(
+    line_item1 = line_item_create_request.LineItemCreateRequest(
       quantity=1, item=item1
     )
 
@@ -266,7 +266,7 @@ Note:
 
     # We do NOT select an instrument yet (selected_instrument_id=None).
 
-    payment_req = payment_create_req.PaymentCreateRequest(
+    payment_request = payment_create_request.PaymentCreateRequest(
       instruments=[],
       selected_instrument_id=None,
       handlers=supported_handlers,  # Pass back what we found (or a subset)
@@ -274,13 +274,13 @@ Note:
 
     # We include the buyer to trigger address lookup on the server
 
-    buyer_req = buyer.Buyer(full_name="John Doe", email="john.doe@example.com")
+    buyer_request = buyer_create_request.BuyerCreateRequest(full_name="John Doe", email="john.doe@example.com")
 
-    create_payload = checkout_create_req.CheckoutCreateRequest(
+    create_payload = checkout_create_request.CheckoutCreateRequest(
       currency="USD",
       line_items=[line_item1],
-      payment=payment_req,
-      buyer=buyer_req,
+      payment=payment_request,
+      buyer=buyer_request,
     )
 
     headers = get_headers()
@@ -350,9 +350,9 @@ Note:
 
     # Update Item 1 (Roses) - Keep quantity 1
 
-    item1_update = item_update_req.ItemUpdateRequest(id="bouquet_roses")
+    item1_update = item_update_request.ItemUpdateRequest(id="bouquet_roses")
 
-    line_item1_update = line_item_update_req.LineItemUpdateRequest(
+    line_item1_update = line_item_update_request.LineItemUpdateRequest(
       id=checkout_data["line_items"][0]["id"],
       quantity=1,
       item=item1_update,
@@ -360,16 +360,17 @@ Note:
 
     # Add Item 2 (Ceramic Pot) - Quantity 2
 
-    item2_update = item_update_req.ItemUpdateRequest(id="pot_ceramic")
+    item2_update = item_update_request.ItemUpdateRequest(id="pot_ceramic")
 
-    line_item2_update = line_item_update_req.LineItemUpdateRequest(
+    line_item2_update = line_item_update_request.LineItemUpdateRequest(
+      id=str(uuid.uuid4()),
       quantity=2,
       item=item2_update,
     )
 
     # Construct the Update Payload
 
-    update_payload = checkout_update_req.CheckoutUpdateRequest(
+    update_payload = checkout_update_request.CheckoutUpdateRequest(
       id=checkout_id,
       line_items=[line_item1_update, line_item2_update],
       currency=checkout_data["currency"],
@@ -453,17 +454,17 @@ Note:
       if li["item"]["id"] == "pot_ceramic"
     )
 
-    item1_update = item_update_req.ItemUpdateRequest(id="bouquet_roses")
+    item1_update = item_update_request.ItemUpdateRequest(id="bouquet_roses")
 
-    line_item1_update = line_item_update_req.LineItemUpdateRequest(
+    line_item1_update = line_item_update_request.LineItemUpdateRequest(
       id=li_1["id"],
       quantity=1,
       item=item1_update,
     )
 
-    item2_update = item_update_req.ItemUpdateRequest(id="pot_ceramic")
+    item2_update = item_update_request.ItemUpdateRequest(id="pot_ceramic")
 
-    line_item2_update = line_item_update_req.LineItemUpdateRequest(
+    line_item2_update = line_item_update_request.LineItemUpdateRequest(
       id=li_2["id"],
       quantity=2,
       item=item2_update,
@@ -471,7 +472,7 @@ Note:
 
     # Construct the Update Payload
 
-    update_payload = checkout_update_req.CheckoutUpdateRequest(
+    update_payload = checkout_update_request.CheckoutUpdateRequest(
       id=checkout_id,
       line_items=[line_item1_update, line_item2_update],
       currency=checkout_data["currency"],
@@ -560,17 +561,17 @@ Note:
         if li["item"]["id"] == "pot_ceramic"
       )
 
-      item1_update = item_update_req.ItemUpdateRequest(id="bouquet_roses")
+      item1_update = item_update_request.ItemUpdateRequest(id="bouquet_roses")
 
-      line_item1_update = line_item_update_req.LineItemUpdateRequest(
+      line_item1_update = line_item_update_request.LineItemUpdateRequest(
         id=li_1["id"],
         quantity=1,
         item=item1_update,
       )
 
-      item2_update = item_update_req.ItemUpdateRequest(id="pot_ceramic")
+      item2_update = item_update_request.ItemUpdateRequest(id="pot_ceramic")
 
-      line_item2_update = line_item_update_req.LineItemUpdateRequest(
+      line_item2_update = line_item_update_request.LineItemUpdateRequest(
         id=li_2["id"],
         quantity=2,
         item=item2_update,
@@ -578,15 +579,15 @@ Note:
 
       # Construct full update payload
 
-      trigger_req = checkout_update_req.CheckoutUpdateRequest(
+      trigger_request = checkout_update_request.CheckoutUpdateRequest(
         id=checkout_id,
         line_items=[line_item1_update, line_item2_update],
         currency=checkout_data["currency"],
         payment=checkout_data["payment"],
-        fulfillment={"methods": [{"type": "shipping"}]},
+        fulfillment={"methods": [{"id": "method_1", "type": "shipping", "line_item_ids": [li_1["id"], li_2["id"]]}]},
       )
 
-      trigger_payload = trigger_req.model_dump(
+      trigger_payload = trigger_request.model_dump(
         mode="json", by_alias=True, exclude_none=True
       )
 
@@ -662,11 +663,11 @@ Note:
 
         # We must send full payload again
 
-        trigger_req.fulfillment = {
-          "methods": [{"type": "shipping", "selected_destination_id": dest_id}]
+        trigger_request.fulfillment = {
+          "methods": [{"id": "method_1", "type": "shipping", "line_item_ids": [li_1["id"], li_2["id"]], "selected_destination_id": dest_id}]
         }
 
-        payload = trigger_req.model_dump(
+        payload = trigger_request.model_dump(
           mode="json", by_alias=True, exclude_none=True
         )
 
@@ -708,17 +709,19 @@ Note:
 
           logger.info("STEP 6: Selecting option: %s", option_id)
 
-          trigger_req.fulfillment = {
+          trigger_request.fulfillment = {
             "methods": [
               {
+                "id": "method_1",
                 "type": "shipping",
+                "line_item_ids": [li_1["id"], li_2["id"]],
                 "selected_destination_id": dest_id,
-                "groups": [{"selected_option_id": option_id}],
+                "groups": [{"id": "group_1", "line_item_ids": [li_1["id"], li_2["id"]], "selected_option_id": option_id}],
               }
             ]
           }
 
-          payload = trigger_req.model_dump(
+          payload = trigger_request.model_dump(
             mode="json", by_alias=True, exclude_none=True
           )
 

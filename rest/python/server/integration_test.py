@@ -26,7 +26,7 @@ from absl.testing import absltest
 import db
 import dependencies
 from fastapi.testclient import TestClient
-from server import app
+from server.server import app
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.ext.asyncio import create_async_engine
 from sqlalchemy.orm import sessionmaker
@@ -90,6 +90,7 @@ class IntegrationTest(absltest.TestCase):
   """Integration tests for the UCP server application."""
 
   def setUp(self) -> None:
+    flags.FLAGS(["test"])
     """Set up the test environment, including temporary DBs and dependencies."""
     super().setUp()
     # Create a temporary directory for test databases
